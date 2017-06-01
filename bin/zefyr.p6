@@ -21,6 +21,7 @@ class Zefyr {
             start {
                 my $proc = Proc::Async.new: :out, :err,
                     |<zef --serial --debug install>, $module;
+                CATCH { default { say "DIED HERE! "; .Str.say; .backtrace.say } }
                 my $out = ''; my $err = '';
                 $proc.stdout.tap: $out ~ *;
                 $proc.stderr.tap: $err ~ *;
