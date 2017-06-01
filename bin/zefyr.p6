@@ -8,7 +8,7 @@ constant ECO_API = 'https://modules.perl6.org/.json';
 
 class Zefyr {
     method toast-all {
-        self.toast: run(:out, <zef list>).lines(:close).grep(
+        self.toast: run(:out, <zef list>).out.lines(:close).grep(
             *.starts-with('#').not
         )».trim;
     }
