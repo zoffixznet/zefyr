@@ -3,7 +3,7 @@ use v6.d.PREVIEW;
 # use WWW;
 
 constant OUTPUT_DIR = 'output'.IO;
-constant INSTALL_TIMEOUT = 5*60;
+constant INSTALL_TIMEOUT = 500*60;
 constant ECO_API = 'https://modules.perl6.org/.json';
 
 class Zefyr {
@@ -35,7 +35,7 @@ class Zefyr {
                         $proc.kill: SIGSEGV
                     }
                 }
-                await $proc-prom;
+                so try await $proc-prom;
                 OUTPUT_DIR.add($module.subst: :g, /\W+/, '-').spurt:
                       "ERR: $err\n\n-----\n\n" ~ "OUT: $out\n";
                 $out
