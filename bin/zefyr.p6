@@ -13,7 +13,7 @@ class Zefyr {
         )».trim;
     }
     method toast (*@modules) {
-        say "Installing @modules[]";
+        say "Installing:\n@modules.join("\n")";
         with OUTPUT_DIR { .dir andthen $_».unlink».so; .rmdir.so; .mkdir.so; }
 
         my role ModuleNamer[$name] { method Module-Name { $name } }
