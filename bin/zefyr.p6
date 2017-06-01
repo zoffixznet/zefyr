@@ -14,7 +14,7 @@ class Zefyr {
     }
     method toast (*@modules) {
         say "Installing @modules[]";
-        with OUTPUT_DIR { .dir».unlink».so; .rmdir.so; .mkdir.so; }
+        with OUTPUT_DIR { .dir andthen $_».unlink».so; .rmdir.so; .mkdir.so; }
 
         my role ModuleNamer[$name] { method Module-Name { $name } }
         my @results = @modules.map: -> $module {
