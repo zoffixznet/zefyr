@@ -20,7 +20,7 @@ class Zefyr {
         my @results = @modules.map: -> $module {
             start {
                 my $proc = Proc::Async.new: :out, :err,
-                    <zef --serial --debug install>, $module;
+                    |<zef --serial --debug install>, $module;
                 my $out = ''; my $err = '';
                 $proc.stdout.tap: $out ~ *;
                 $proc.stderr.tap: $err ~ *;
