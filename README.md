@@ -1,3 +1,18 @@
+
+# App moved
+
+Use https://github.com/zoffixznet/perl6-Toaster instead.
+
+This repo contains a dated and barely working script
+
+
+
+################################################
+################################################
+
+
+
+
 # zefyr
 
 Ecosystem toaster.
